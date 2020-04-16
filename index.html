@@ -1,0 +1,39 @@
+<head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<p></p>
+<p></p>
+<h1>Let's Play <?= name ?>!</h1>
+<p>Game ID = <?= game_name ?></p>
+<p>&nbsp;</p>
+<h2>Info for the trivia players:</h2>
+<ol>
+<li>Categories and questions will appear on&nbsp;<a href="<?= questions ?>" target="_blank" rel="noopener">this spreadsheet</a> once the game begins.</li>
+<li>Use <a href="<?= form ?>" target="_blank" rel="noopener">this Form</a> to submit your answers.</li>
+</ol>
+<p>&nbsp;</p>
+<h2>Info for the Quizmaster:</h2>
+<ol>
+<li>Edit the team names in the Answer form&nbsp;<a href="<?= form_edit ?>" target="_blank" rel="noopener">here</a></li>
+<li>Paste questions into&nbsp;<a href="<?= questions ?>" target="_blank" rel="noopener">this spreadsheet</a> once the game begins.
+<ol>
+<li>This is the same as (1) in the "Info for the trivia players" section above, but you alone have the ability to edit the Sheet.</li>
+<li>TIP: If you use "Paste as Values" (Mac: shift-command-v, PC: shift-ctrl-v) the formatting will be preserved.</li>
+</ol>
+</li>
+<li>View submitted answers on&nbsp;<a href="<?= answers ?>" target="_blank" rel="noopener">this spreadsheet</a>
+<ol>
+<li>Score each answer in the "Points Earned" column.</li>
+<li>Use the "Scoreboard" tab to see the current score.
+<ol>
+<li>This should update automatically based on the points you award in the "Form Responses 1" tab.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+</body>
