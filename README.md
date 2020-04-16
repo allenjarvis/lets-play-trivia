@@ -9,4 +9,4 @@ This Google Apps script will create resources to facilitate a virtual Team Trivi
 Additionally, an HTML file is created from a template that provides instructions and links for the players and quizmaster (see example.jpg).
 
 You can simply point your browser here to create the necessary files, but you'll need to bypass the safety warnings:
-https://script.google.com/macros/s/AKfycbyH_Kl9J7ww6hKp2WEDp4qBWtwRpWXtvKGYd44p3rNpMJT0_pM/exec?name=your_name
+https://script.google.com/macros/s/AKfycbyH_Kl9J7ww6hKp2WEDp4qBWtwRpWXtvKGYd44p3rNpMJT0_pM/exec?name=YOUR_NAME_HERE
