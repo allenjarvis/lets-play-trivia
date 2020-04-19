@@ -1,5 +1,7 @@
 # lets-play-trivia
 
+https://lets-play-trivia.ue.r.appspot.com/
+
 This Google Apps script will create resources to facilitate a virtual Team Trivia game:
 
 1. An answer form to be used by the participants.
