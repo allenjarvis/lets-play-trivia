@@ -1,39 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-
 <body>
 
-<p></p>
-<p></p>
-<h1>Let's Play <?= name ?>!</h1>
-<p>Game ID = <?= game_name ?></p>
-<p>&nbsp;</p>
-<h2>Info for the trivia players:</h2>
-<ol>
-<li>Categories and questions will appear on&nbsp;<a href="<?= questions ?>" target="_blank" rel="noopener">this spreadsheet</a> once the game begins.</li>
-<li>Use <a href="<?= form ?>" target="_blank" rel="noopener">this Form</a> to submit your answers.</li>
-</ol>
-<p>&nbsp;</p>
-<h2>Info for the Quizmaster:</h2>
-<ol>
-<li>Edit the team names in the Answer form&nbsp;<a href="<?= form_edit ?>" target="_blank" rel="noopener">here</a></li>
-<li>Paste questions into&nbsp;<a href="<?= questions ?>" target="_blank" rel="noopener">this spreadsheet</a> once the game begins.
-<ol>
-<li>This is the same as (1) in the "Info for the trivia players" section above, but you alone have the ability to edit the Sheet.</li>
-<li>TIP: If you use "Paste as Values" (Mac: shift-command-v, PC: shift-ctrl-v) the formatting will be preserved.</li>
-</ol>
-</li>
-<li>View submitted answers on&nbsp;<a href="<?= answers ?>" target="_blank" rel="noopener">this spreadsheet</a>
-<ol>
-<li>Score each answer in the "Points Earned" column.</li>
-<li>Use the "Scoreboard" tab to see the current score.
-<ol>
-<li>This should update automatically based on the points you award in the "Form Responses 1" tab.</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
+<div class="container-fluid">
+    <p></p>
+    <p></p>
+    <h1>Let's Play <?= name ?>!</h1>
+    <p>Game ID = <?= game_id ?></p>
+    <p>&nbsp;</p>
+    <h2>Info for the trivia players:</h2>
+    <ol>
+    <li>Categories and questions will appear on&nbsp;<a href="<?= questions ?>" target="_blank" rel="noopener">this spreadsheet</a> once the game begins.</li>
+    <li>Use <a href="<?= form ?>" target="_blank" rel="noopener">this Form</a> to submit your answers.</li>
+    </ol>
+    <p>&nbsp;</p>
+    <h2>Info for the Quizmaster:</h2>
+    <ol>
+    <li>Edit the team names in the Answer form&nbsp;<a href="<?= form_edit ?>" target="_blank" rel="noopener">here</a></li>
+    <li>Paste questions into&nbsp;<a href="<?= questions ?>" target="_blank" rel="noopener">this spreadsheet</a> once the game begins.
+    <ol>
+    <li>This is the same as (1) in the "Info for the trivia players" section above, but you alone have the ability to edit the Sheet.</li>
+    <li>TIP: If you use "Paste as Values" (Mac: shift-command-v, PC: shift-ctrl-v) the formatting will be preserved.</li>
+    </ol>
+    </li>
+    <li>View submitted answers on&nbsp;<a href="<?= answers ?>" target="_blank" rel="noopener">this spreadsheet</a>
+    <ol>
+    <li>Score each answer in the "Points Earned" column.</li>
+    <li>Use the "Scoreboard" tab to see the current score.
+    <ol>
+    <li>This should update automatically based on the points you award in the "Form Responses 1" tab.</li>
+    </ol>
+    </li>
+    </ol>
+    </li>
+    </ol>
+	<p>&nbsp;</p>
+    <p>Collaborator: <?= collaborator ?>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p><a href="https://github.com/allenjarvis/lets-play-trivia/blob/master/README.md" target="_blank" rel="noopener">Click here for info on how this was built and what this is doing in your Google account.</a></p>
+
+</div>
 
 </body>
+</html>
