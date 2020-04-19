@@ -13,24 +13,23 @@
 function doGet(e) {
   
   // Name the game
-  var x = new Date().toUTCString();
-    if(typeof e.parameter.name === 'undefined') {
-        var name = 'Team Trivia';
-    } else {
-        var name = e.parameter.name + "'s Trivia";
-    }
-  var game_name = name + ' - ' + x;
-    
+  var game_id = Date.now();
+  if(typeof e.parameter.name === 'undefined') {
+      var name = 'Team Trivia';
+  } else {
+      var name = e.parameter.name + "'s Trivia";
+  }
+  
+
+  // Create a new form...  
   // Make an initial list of teams here (you CAN change this after the Form is created)
   var teams = [
     'Team 1',
     'Team 2',
     'Team 3'
   ];
-
-  // Create a new form, then add a checkbox question, a multiple choice question,
-  // a page break, then a date question and a grid of questions.
-  var form = FormApp.create(game_name);
+  var form = FormApp.create(name + ' (Game ID: ' + game_id + ')');
+  form.setDescription('Game ID: ' + game_id)
   form.addMultipleChoiceItem()
       .setTitle('What is your team?')
       .setChoiceValues(teams)
@@ -43,7 +42,7 @@ function doGet(e) {
   
   
   // Create a spreadsheet for the form responses (the answers)
-  var ss1 = SpreadsheetApp.create('ANSWERS: ' + game_name);
+  var ss1 = SpreadsheetApp.create('ANSWERS: ' + name + ' (Game ID: ' + game_id + ')');
   form.setDestination(FormApp.DestinationType.SPREADSHEET, ss1.getId());
   // Add a column for Points Earned
   var ss1a = ss1.getSheetByName('Form Responses 1');
@@ -67,7 +66,7 @@ function doGet(e) {
 
   
   // Create a spreadsheet for the questions
-  var ss2 = SpreadsheetApp.create('QUESTIONS: ' + game_name);
+  var ss2 = SpreadsheetApp.create('QUESTIONS: ' + name + ' (Game ID: ' + game_id + ')');
   // Add a column for Points Earned
   var ss2a = ss2.getSheetByName('Sheet1');
   ss2a.setName("QUESTIONS");
@@ -84,16 +83,33 @@ function doGet(e) {
   // open up public VIEW access
   var file = DriveApp.getFileById(ss2.getId());
   file.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.VIEW);
+  
+  // Add collaborator
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(e.parameter.collaborator)) {
+    var collaborator = e.parameter.collaborator;
+    // form
+    var file = DriveApp.getFileById(form.getId());
+    file.addEditor(collaborator);      
+    // form responses/scoreboard
+    var file = DriveApp.getFileById(ss1.getId());
+    file.addEditor(collaborator);    
+    // questions
+    var file = DriveApp.getFileById(ss2.getId());
+    file.addEditor(collaborator); 
+  } else {
+    var collaborator = "None or invalid";
+  }
 
 
   // create an HTML file and return it
   var HTMLOutput = HtmlService.createTemplateFromFile('index');
   HTMLOutput.name = name;
-  HTMLOutput.game_name = game_name;
+  HTMLOutput.game_id = game_id;
   HTMLOutput.form = form.getPublishedUrl();
   HTMLOutput.form_edit = form.getEditUrl();
   HTMLOutput.answers = ss1.getUrl();
   HTMLOutput.questions = ss2.getUrl();
+  HTMLOutput.collaborator = collaborator;
   return HTMLOutput.evaluate();
 
   
